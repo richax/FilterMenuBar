@@ -1,0 +1,313 @@
+<resources>
+    <string name="app_name">CompoundSelector</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">FilterBar</string>
+    <string name="single_node">{
+        "showName": "省份",
+        "children": [
+            {
+                "showName": "上海",
+                "value": "3",
+                "tag": "1",
+                "children": []
+            },
+            {
+                "showName": "北京",
+                "value": "3",
+                "tag": "1",
+                "children": []
+            },
+            {
+                "showName": "天津",
+                "value": "3",
+                "tag": "1",
+                "children": []
+            },
+            {
+                "showName": "浙江",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "江苏",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "广东",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "湖北",
+                "value": "3",
+                "tag": "0",
+                "children": [],
+                "checked": "true"
+            },
+            {
+                "showName": "安徽",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "福建",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "新疆",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "西藏",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "辽宁",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            }
+        ]
+    }</string>
+    <string name="two_node">
+        {
+        "showName": "省份",
+        "children": [
+            {
+                "showName": "上海",
+                "value": "3",
+                "tag": "1",
+                "children": [
+                    {
+                        "showName": "黄浦区",
+                        "value": "1",
+                        "tag": "1",
+                        "children": []
+                    },
+                    {
+                        "showName": "虹口区",
+                        "value": "5",
+                        "tag": "1",
+                        "children": [
+                            {
+                                "showName": "广中路街道",
+                                "value": "3",
+                                "tag": "1",
+                                "children": []
+                            },
+                            {
+                                "showName": "曲阳路街道",
+                                "value": "3",
+                                "tag": "1",
+                                "children": []
+                            },
+                            {
+                                "showName": "欧阳路街道",
+                                "value": "3",
+                                "tag": "1",
+                                "children": []
+                            },
+                            {
+                                "showName": "嘉兴路街道",
+                                "value": "3",
+                                "tag": "1",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "showName": "北京",
+                "value": "3",
+                "tag": "1",
+                "children": [
+                    {
+                        "showName": "昌平",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    },
+                    {
+                        "showName": "海淀",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    },
+                    {
+                        "showName": "中关村",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "showName": "香港",
+                "value": "3",
+                "tag": "1",
+                "children": [
+                    {
+                        "showName": "香港岛",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    },
+                    {
+                        "showName": "九龙",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    },
+                    {
+                        "showName": "新界",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "showName": "天津",
+                "value": "3",
+                "tag": "1",
+                "children": []
+            },
+            {
+                "showName": "浙江",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "江苏",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "广东",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "湖北",
+                "value": "3",
+                "tag": "0",
+                "children": [],
+                "checked": "false"
+            },
+            {
+                "showName": "安徽",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "福建",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "新疆",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "西藏",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "辽宁",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "四川",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "湖南",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "黑龙江",
+                "value": "3",
+                "tag": "0",
+                "children": []
+            },
+            {
+                "showName": "甘肃",
+                "value": "3",
+                "tag": "0",
+                "children": [
+                    {
+                        "showName": "兰州",
+                        "value": "3",
+                        "tag": "1",
+                        "children": [
+                            {
+                                "showName": "城关区",
+                                "value": "3",
+                                "tag": "1",
+                                "children": []
+                            },
+                            {
+                                "showName": "七里河区",
+                                "value": "3",
+                                "tag": "1",
+                                "children": []
+                            },
+                            {
+                                "showName": "安宁区",
+                                "value": "3",
+                                "tag": "1",
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "showName": "天水",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    },
+                    {
+                        "showName": "白银",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    },
+                    {
+                        "showName": "平凉",
+                        "value": "3",
+                        "tag": "1",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+    </string>
+</resources>

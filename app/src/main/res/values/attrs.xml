@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="FilterMenuBar">
+        <attr name="fmb_listItemTextSize" format="dimension" />
+        <attr name="fmb_menuBarTextSize" format="dimension" />
+    </declare-styleable>
+</resources>

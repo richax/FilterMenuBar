@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBg">#00FFFF</color>
+
+    <color name="filter_common">#FFFFFF</color>
+    <color name="filter_checked">#32B9AA</color>
+    <color name="filter_lv1_checked_bg">#F3F3F3</color>
+    <color name="filter_lv2_bg">#EAEAEA</color>
+    <color name="filter_lv3_bg">#EDEDED</color>
+    <color name="filter_text_color_one">#666666</color>
+    <color name="filter_text_color_two">#757575</color>
+    <color name="filter_text_color_three">#999999</color>
+    <color name="filter_shadow_color">#AA222222</color>
+
+</resources>
