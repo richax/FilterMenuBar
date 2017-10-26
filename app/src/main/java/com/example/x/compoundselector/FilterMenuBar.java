@@ -210,7 +210,7 @@ public class FilterMenuBar extends LinearLayout {
         // Update the contentView of the popupWindow.
         mPopupWindow.setContentView(contentView);
 
-        if (Build.VERSION.SDK_INT < 24) {
+        if (Build.VERSION.SDK_INT != 24 && Build.VERSION.SDK_INT != 25) {
             mPopupWindow.showAsDropDown(this, 0, 0);
         } else {
             int[] location = new int[2];
