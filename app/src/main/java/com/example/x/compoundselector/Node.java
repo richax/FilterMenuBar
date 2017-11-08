@@ -84,7 +84,7 @@ public class Node {
      */
     public static Node getRoot(Node node) {
         Node tempNode = node;
-        while (tempNode != null) {
+        while (tempNode != null && tempNode.getParent() != null) {
             tempNode = tempNode.getParent();
         }
         return tempNode;
