@@ -19,7 +19,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Richa on 08/09/2017.
@@ -232,5 +234,23 @@ public class FilterMenuBar extends LinearLayout {
          * @param invokedGroupIndex index for indicating which menu group invoked this selection action.
          */
         void onFilterItemSelected(List<List<Node>> selectedGroups, int invokedGroupIndex);
+    }
+
+    /**
+     * An adapter class for receiving simplified selected result.
+     */
+    public static abstract class OnFilterItemSelectedSimpleAdapter implements OnFilterItemSelectedListener {
+        @Override
+        public final void onFilterItemSelected(List<List<Node>> selectedGroups, int invokedGroupIndex) {
+            Map<String, String> selected = new HashMap<>();
+            for (List<Node> group : selectedGroups) {
+                String groupName = group.get(0).getShowName();
+                String groupValue = group.get(group.size() - 1).getShowName();
+                selected.put(groupName, groupValue);
+            }
+            onFilterItemSelected(selected, invokedGroupIndex);
+        }
+
+        public abstract void onFilterItemSelected(Map<String, String> selectedGroups, int invokedGroupIndex);
     }
 }
