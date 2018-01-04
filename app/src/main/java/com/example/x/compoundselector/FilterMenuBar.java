@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -15,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -88,10 +88,10 @@ public class FilterMenuBar extends LinearLayout {
         }
 
         Node checkedLeafNode = Node.getCheckedLeafWithDefault(rootNode);
-        TextView titleView = newMenuTitleView();
+        FilterTitleTextView titleView = newMenuTitleView();
         titleView.setText(checkedLeafNode.getShowName());
         // Store the tree into the textView's tag attribute.
-        titleView.setTag(rootNode);
+        titleView.setNode(rootNode);
         titleView.setOnClickListener(internalTitleClickListener);
         addView(titleView);
 
@@ -99,8 +99,8 @@ public class FilterMenuBar extends LinearLayout {
     }
 
     @NonNull
-    private TextView newMenuTitleView() {
-        TextView titleView = new TextView(getContext());
+    private FilterTitleTextView newMenuTitleView() {
+        FilterTitleTextView titleView = new FilterTitleTextView(getContext());
         LayoutParams lp = new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
         titleView.setLayoutParams(lp);
         titleView.setMaxLines(1);
@@ -138,21 +138,21 @@ public class FilterMenuBar extends LinearLayout {
 
     private void showFilterMenuWindow(@NonNull View anchorView) {
 
-        Object tag = anchorView.getTag();
-        if (!(tag instanceof Node)) {
+        if (!(anchorView instanceof FilterTitleTextView)) {
             return;
         }
-        Node rootNode = (Node) tag;
+        final FilterTitleTextView invokerView = (FilterTitleTextView) anchorView;
+        Node rootNode = invokerView.getNode();
+        if (rootNode == null) {
+            return;
+        }
 
-        final TextView invokerView = (anchorView instanceof TextView) ? ((TextView) anchorView) : null;
         View contentView = FilterView.newFilterView(getContext(), rootNode,
                 new FilterView.OnNodeSelectedListener() {
                     @Override
                     public void onNodeSelected(Node node) {
                         // Update the title text.
-                        if (invokerView != null) {
-                            invokerView.setText(node.getShowName());
-                        }
+                        invokerView.setText(node.getShowName());
                         mPopupWindow.dismiss();
 
                         // Collecting filter selected result.
@@ -163,19 +163,15 @@ public class FilterMenuBar extends LinearLayout {
                             int invokedGroupIndex = -1;
                             for (int i = 0, count = getChildCount(); i < count; i++) {
                                 View view = getChildAt(i);
-                                if (!(view instanceof TextView)) {
+                                if (!(view instanceof FilterTitleTextView)) {
                                     continue;
                                 }
-                                TextView textView = (TextView) view;
-                                Object tag = textView.getTag();
-                                if (!(tag instanceof Node)) {
-                                    continue;
-                                }
-                                if (invokedGroupIndex < 0 && textView.equals(invokerView)) {
+                                FilterTitleTextView titleView = (FilterTitleTextView) view;
+                                if (invokedGroupIndex < 0 && titleView.equals(invokerView)) {
                                     invokedGroupIndex = result.size();
                                 }
                                 List<Node> subResult;
-                                Node rootNode = (Node) tag;
+                                Node rootNode = titleView.getNode();
                                 Node checkedNode = Node.findCheckedLeafPreOrder(rootNode);
                                 if (checkedNode == null) {
                                     subResult = Collections.emptyList();
@@ -205,7 +201,6 @@ public class FilterMenuBar extends LinearLayout {
             mPopupWindow.setTouchable(true);
             mPopupWindow.setFocusable(true);
             mPopupWindow.setOutsideTouchable(true);
-
             mPopupWindow.setBackgroundDrawable(new ColorDrawable(
                     ContextCompat.getColor(getContext(), R.color.filter_shadow_color)));
         }
@@ -253,4 +248,37 @@ public class FilterMenuBar extends LinearLayout {
 
         public abstract void onFilterItemSelected(Map<String, String> selectedGroups, int invokedGroupIndex);
     }
+
+    public enum FilterType {
+        Normal,
+        Datetime
+    }
+
+    class FilterTitleTextView extends AppCompatTextView {
+
+        private final FilterType filterType;
+        private Node node;
+
+        public FilterTitleTextView(Context context) {
+            this(context, FilterType.Normal);
+        }
+
+        public FilterTitleTextView(Context context, FilterType filterType) {
+            super(context);
+            this.filterType = filterType;
+        }
+
+        public FilterType getFilterType() {
+            return filterType;
+        }
+
+        public Node getNode() {
+            return node;
+        }
+
+        public void setNode(Node node) {
+            this.node = node;
+        }
+    }
+
 }
